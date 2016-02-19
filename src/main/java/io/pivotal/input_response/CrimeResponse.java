@@ -1,4 +1,4 @@
-package io.pivotal.response;
+package io.pivotal.input_response;
 
 import lombok.Data;
 

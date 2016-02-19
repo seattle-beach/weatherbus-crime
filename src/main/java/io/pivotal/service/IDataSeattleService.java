@@ -1,6 +1,6 @@
 package io.pivotal.service;
 
-import io.pivotal.response.CrimeResponse;
+import io.pivotal.input_response.CrimeResponse;
 import org.springframework.stereotype.Component;
 import retrofit.http.GET;
 import retrofit.http.Query;

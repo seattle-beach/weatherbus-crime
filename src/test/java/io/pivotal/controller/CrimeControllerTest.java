@@ -8,10 +8,11 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import utilities.TestUtilities;
 
+import static net.javacrumbs.jsonunit.spring.JsonUnitResultMatchers.json;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CrimeControllerTest {
@@ -27,6 +28,6 @@ public class CrimeControllerTest {
     public void getNumber_shouldReturnTheNumberOfCrimes() throws Exception {
         when(service.getNumberOfCrimes()).thenReturn(4);
         mockMvc = MockMvcBuilders.standaloneSetup(subject).build();
-        mockMvc.perform(get("/api/")).andExpect(content().string("4"));
+        mockMvc.perform(get("/api/")).andExpect(json().isEqualTo(TestUtilities.fixtureOutputJsonFileToString("NumberCrimes")));
     }
 }

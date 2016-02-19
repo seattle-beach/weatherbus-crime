@@ -1,7 +1,7 @@
 package io.pivotal.service;
 
 import com.google.gson.Gson;
-import io.pivotal.response.CrimeResponse;
+import io.pivotal.input_response.CrimeResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
