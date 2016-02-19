@@ -2,7 +2,7 @@ package io.pivotal.service;
 
 import com.google.gson.Gson;
 import io.pivotal.input_response.CrimeResponse;
-import io.pivotal.utilities.Utilities;
+import io.pivotal.utilities.QueryFormatUtilities;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -28,7 +28,7 @@ public class CrimeServiceTest {
     @Test
     public void getNumberOfCrimes_shouldReturnATotalOfCrimesInTheArea() throws Exception {
         List<CrimeResponse> responses = (List<CrimeResponse>) gson.fromJson(new FileReader("src/test/resources/input/DataSeattle.json"), List.class);
-        when(service.getCrimeResponse(Utilities.formatWhere(10,15))).thenReturn(responses);
+        when(service.getCrimeResponse(QueryFormatUtilities.formatWhere(10,15))).thenReturn(responses);
         assertEquals(responses.size(), subject.getNumberOfCrimes(10, 15));
     }
 }
