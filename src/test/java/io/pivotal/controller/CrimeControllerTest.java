@@ -26,7 +26,14 @@ public class CrimeControllerTest {
 
     @Test
     public void getNumber_shouldReturnTheNumberOfCrimes() throws Exception {
-        when(service.getNumberOfCrimes()).thenReturn(4);
+        when(service.getNumberOfCrimes(10,15)).thenReturn(4);
+        mockMvc = MockMvcBuilders.standaloneSetup(subject).build();
+        mockMvc.perform(get("/api/?lat=10&lng=15")).andExpect(json().isEqualTo(TestUtilities.fixtureOutputJsonFileToString("NumberCrimes")));
+    }
+
+    @Test
+    public void getNumber_withNoParams_shouldDefaultToPivotalOffice() throws Exception {
+        when(service.getNumberOfCrimes(47.599189, -122.333888)).thenReturn(4);
         mockMvc = MockMvcBuilders.standaloneSetup(subject).build();
         mockMvc.perform(get("/api/")).andExpect(json().isEqualTo(TestUtilities.fixtureOutputJsonFileToString("NumberCrimes")));
     }
