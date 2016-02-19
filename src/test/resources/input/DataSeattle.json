@@ -1,0 +1,109 @@
+[
+  {
+    "census_tract_2000": "6700.1001",
+    "date_reported": "2015-11-03T18:42:00.000",
+    "district_sector": "D",
+    "general_offense_number": "2015385461",
+    "hundred_block_location": "12XX BLOCK OF WESTLAKE AV N",
+    "latitude": "47.629481616",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -122.340988,
+        47.629482
+      ]
+    },
+    "longitude": "-122.34098785",
+    "month": "11",
+    "occurred_date_or_date_range_start": "2015-11-02T21:00:00.000",
+    "occurred_date_range_end": "2015-11-03T08:30:00.000",
+    "offense_code": "2305",
+    "offense_code_extension": "0",
+    "offense_type": "THEFT-CARPROWL",
+    "rms_cdw_id": "575149",
+    "summarized_offense_description": "CAR PROWL",
+    "summary_offense_code": "2300",
+    "year": "2015",
+    "zone_beat": "D2"
+  },
+  {
+    "census_tract_2000": "6700.1001",
+    "date_reported": "2015-11-23T10:23:00.000",
+    "district_sector": "D",
+    "general_offense_number": "2015408985",
+    "hundred_block_location": "12XX BLOCK OF WESTLAKE AV N",
+    "latitude": "47.629482269",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -122.340988,
+        47.629482
+      ]
+    },
+    "longitude": "-122.340988159",
+    "month": "11",
+    "occurred_date_or_date_range_start": "2015-11-23T10:23:00.000",
+    "offense_code": "X",
+    "offense_code_extension": "47",
+    "offense_type": "PROPERTY FOUND",
+    "rms_cdw_id": "587237",
+    "summarized_offense_description": "STOLEN PROPERTY",
+    "summary_offense_code": "X",
+    "year": "2015",
+    "zone_beat": "D2"
+  },
+  {
+    "census_tract_2000": "6700.1001",
+    "date_reported": "2016-01-07T13:05:00.000",
+    "district_sector": "D",
+    "general_offense_number": "20167419",
+    "hundred_block_location": "12XX BLOCK OF WESTLAKE AV N",
+    "latitude": "47.630992889",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -122.340996,
+        47.630993
+      ]
+    },
+    "longitude": "-122.340995789",
+    "month": "1",
+    "occurred_date_or_date_range_start": "2016-01-07T10:00:00.000",
+    "occurred_date_range_end": "2016-01-07T11:30:00.000",
+    "offense_code": "2404",
+    "offense_code_extension": "1",
+    "offense_type": "VEH-THEFT-AUTO",
+    "rms_cdw_id": "615083",
+    "summarized_offense_description": "VEHICLE THEFT",
+    "summary_offense_code": "2400",
+    "year": "2016",
+    "zone_beat": "D2"
+  },
+  {
+    "census_tract_2000": "6700.1001",
+    "date_reported": "2015-11-03T08:47:00.000",
+    "district_sector": "D",
+    "general_offense_number": "2015907196",
+    "hundred_block_location": "11XX BLOCK OF WESTLAKE AV N",
+    "latitude": "47.629481616",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -122.340988,
+        47.629482
+      ]
+    },
+    "longitude": "-122.34098785",
+    "month": "11",
+    "occurred_date_or_date_range_start": "2015-11-03T00:00:00.000",
+    "occurred_date_range_end": "2015-11-03T08:30:00.000",
+    "offense_code": "2305",
+    "offense_code_extension": "0",
+    "offense_type": "THEFT-CARPROWL",
+    "rms_cdw_id": "575152",
+    "summarized_offense_description": "CAR PROWL",
+    "summary_offense_code": "2300",
+    "year": "2015",
+    "zone_beat": "D2"
+  }
+]
