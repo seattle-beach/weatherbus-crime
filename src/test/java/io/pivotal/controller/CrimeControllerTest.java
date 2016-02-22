@@ -1,5 +1,6 @@
 package io.pivotal.controller;
 
+import io.pivotal.response.output.CrimeInfo;
 import io.pivotal.service.CrimeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 public class CrimeControllerTest {
     @Mock
     CrimeService service;
+    @Mock
+    CrimeInfo info;
 
     @InjectMocks
     CrimeController subject;
@@ -36,5 +39,12 @@ public class CrimeControllerTest {
         when(service.getNumberOfCrimes(47.599189, -122.333888)).thenReturn(4);
         mockMvc = MockMvcBuilders.standaloneSetup(subject).build();
         mockMvc.perform(get("/api/")).andExpect(json().isEqualTo(TestUtilities.fixtureOutputJsonFileToString("NumberCrimes")));
+    }
+
+    @Test
+    public void getInfo() throws Exception {
+        when(service.getCrimeInfo(10,15)).thenReturn(new CrimeInfo(4, "CAR PROWL", 1));
+        mockMvc = MockMvcBuilders.standaloneSetup(subject).build();
+        mockMvc.perform(get("/api/info?lat=10&lng=15")).andExpect(json().isEqualTo(TestUtilities.jsonFileToString("src/test/resources/output/CrimeInfo.json")));
     }
 }

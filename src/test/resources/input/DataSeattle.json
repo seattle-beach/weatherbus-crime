@@ -72,9 +72,9 @@
     "occurred_date_range_end": "2016-01-07T11:30:00.000",
     "offense_code": "2404",
     "offense_code_extension": "1",
-    "offense_type": "VEH-THEFT-AUTO",
+    "offense_type": "Fake data",
     "rms_cdw_id": "615083",
-    "summarized_offense_description": "VEHICLE THEFT",
+    "summarized_offense_description": "RECKLESS BURNING",
     "summary_offense_code": "2400",
     "year": "2016",
     "zone_beat": "D2"
