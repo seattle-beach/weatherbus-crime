@@ -23,10 +23,6 @@ public class TestUtilities {
         return sb.toString();
     }
 
-    public static String fixtureOutputJsonFileToString(String fixture) throws IOException {
-        return jsonFileToString("src/test/resources/output/" + fixture + ".json");
-    }
-
     public static class RequestWithUrl extends ArgumentMatcher<Request> {
         private String expectedUrl;
 

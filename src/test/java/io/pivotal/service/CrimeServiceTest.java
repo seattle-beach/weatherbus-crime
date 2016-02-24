@@ -29,13 +29,6 @@ public class CrimeServiceTest {
     Gson gson = new Gson();
 
     @Test
-    public void getNumberOfCrimes_shouldReturnATotalOfCrimesInTheArea() throws Exception {
-        List<CrimeResponse> responses = gson.fromJson(new FileReader("src/test/resources/input/DataSeattle.json"), List.class);
-        when(service.getCrimeResponses(QueryFormatUtilities.formatWhere(10,15))).thenReturn(responses);
-        assertEquals(responses.size(), subject.getNumberOfCrimes(10, 15));
-    }
-
-    @Test
     public void getCrimeInfo_shouldReturnAccurateCrimeInfoForInput() throws Exception {
         Type listOfCrimeResponses = new TypeToken<ArrayList<CrimeResponse>>() {}.getType();
         List<CrimeResponse> responses = gson.fromJson(new FileReader("src/test/resources/input/DataSeattle.json"), listOfCrimeResponses);

@@ -18,10 +18,6 @@ public class CrimeService {
             Arrays.asList("ASSAULT", "BURGLARY", "HOMICIDE", "INJURY",
                     "RECKLESS BURNING", "ROBBERY", "THREATS", "WEAPON"));
 
-    public int getNumberOfCrimes(double latitude, double longitude) {
-        return service.getCrimeResponses(QueryFormatUtilities.formatWhere(latitude, longitude)).size();
-    }
-
     public CrimeInfo getCrimeInfo(double latitude, double longitude) {
         List<CrimeResponse> responses = service.getCrimeResponses(QueryFormatUtilities.formatWhere(latitude, longitude));
 
