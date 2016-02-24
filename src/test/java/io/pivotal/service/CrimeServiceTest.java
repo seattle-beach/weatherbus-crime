@@ -3,6 +3,7 @@ package io.pivotal.service;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import io.pivotal.response.input.CrimeResponse;
+import io.pivotal.response.output.CrimeInfo;
 import io.pivotal.utilities.QueryFormatUtilities;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,11 +31,15 @@ public class CrimeServiceTest {
 
     @Test
     public void getCrimeInfo_shouldReturnAccurateCrimeInfoForInput() throws Exception {
+        List<CrimeInfo.Offense> offenses = new ArrayList<>();
+        offenses.add(new CrimeInfo.Offense("STOLEN PROPERTY",1));
+        offenses.add(new CrimeInfo.Offense("RECKLESS BURNING", 1));
+        offenses.add(new CrimeInfo.Offense("CAR PROWL", 2));
+
         Type listOfCrimeResponses = new TypeToken<ArrayList<CrimeResponse>>() {}.getType();
         List<CrimeResponse> responses = gson.fromJson(new FileReader("src/test/resources/input/DataSeattle.json"), listOfCrimeResponses);
         when(service.getCrimeResponses(QueryFormatUtilities.formatWhere(10, 15))).thenReturn(responses);
-        assertEquals(responses.size(), subject.getCrimeInfo(10,15).getNumberOfCrimes());
-        assertEquals("CAR PROWL", subject.getCrimeInfo(10,15).getMostFrequentCrimeType());
-        assertEquals(1, subject.getCrimeInfo(10,15).getNumberOfViolentCrimes());
+        CrimeInfo expected = new CrimeInfo(responses.size(), "CAR PROWL", 1, offenses);
+        assertEquals(expected, subject.getCrimeInfo(10,15));
     }
 }

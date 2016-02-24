@@ -20,6 +20,7 @@ public class CrimeService {
 
     public CrimeInfo getCrimeInfo(double latitude, double longitude) {
         List<CrimeResponse> responses = service.getCrimeResponses(QueryFormatUtilities.formatWhere(latitude, longitude));
+        List<CrimeInfo.Offense> offenses = new ArrayList<>();
 
 //        This is the same code as below in Java 8 style
 
@@ -35,18 +36,19 @@ public class CrimeService {
         for (CrimeResponse cr : responses) {
             if (crimeNamesToFrequency.containsKey(cr.getSummarized_offense_description())) {
                 crimeNamesToFrequency.put(cr.getSummarized_offense_description(), crimeNamesToFrequency.get(cr.getSummarized_offense_description()) + 1);
-            }
-            else {
+            } else {
                 crimeNamesToFrequency.put(cr.getSummarized_offense_description(), 1);
             }
             if (crimeNamesToFrequency.get(cr.getSummarized_offense_description()) > mostFrequentCrimeCount) {
                 mostFrequentCrimeName = cr.getSummarized_offense_description();
+                mostFrequentCrimeCount++;
             }
             if (violentCrimeNames.contains(cr.getSummarized_offense_description())) {
                 violentCrimeCount++;
             }
         }
 
-        return new CrimeInfo(responses.size(), mostFrequentCrimeName, violentCrimeCount);
+        crimeNamesToFrequency.forEach((name,frequency) -> offenses.add(new CrimeInfo.Offense(name, frequency)));
+        return new CrimeInfo(responses.size(), mostFrequentCrimeName, violentCrimeCount, offenses);
     }
 }
