@@ -1,0 +1,46 @@
+{
+  "data" : {
+    "type" : "all",
+    "total" : 8,
+    "popular" : "DISPUTE",
+    "offenses" : [
+      {
+        "type" : "violent",
+        "total" : 3,
+        "popular" : "ASSAULT",
+        "offenses" : [
+          {
+            "type": "HOMICIDE",
+            "total": 1
+          },
+          {
+            "type" : "ASSAULT",
+            "total" : 2
+          }
+        ]
+      },
+      {
+        "type" : "regular",
+        "total" : 1,
+        "popular": "PICKPOCKET",
+        "offenses" : [
+          {
+            "type" : "PICKPOCKET",
+            "total" : 1
+          }
+        ]
+      },
+      {
+        "type" : "mild",
+        "total" : 4,
+        "popular": "DISPUTE",
+        "offenses" : [
+          {
+            "type" : "DISPUTE",
+            "total" : 4
+          }
+        ]
+      }
+    ]
+  }
+}
