@@ -1,5 +1,6 @@
 package io.pivotal.controller;
 
+import io.pivotal.response.output.CrimeDetail;
 import io.pivotal.response.output.CrimeInfo;
 import io.pivotal.service.CrimeService;
 import org.junit.Before;
@@ -52,5 +53,23 @@ public class CrimeControllerTest {
     public void getInfo() throws Exception {
         when(service.getCrimeInfo(10, 15)).thenReturn(new CrimeInfo(4, "CAR PROWL", 1, offenses));
         mockMvc.perform(get("/api/info?lat=10&lng=15")).andExpect(json().isEqualTo(TestUtilities.jsonFileToString("src/test/resources/output/CrimeInfo.json")));
+    }
+
+    @Test
+    public void getDetail() throws Exception {
+        CrimeDetail response = new CrimeDetail("all", 8, "MEH CRIME", new ArrayList<CrimeDetail>() {{
+            add(new CrimeDetail("violent", 3, "BAD CRIME", new ArrayList<CrimeDetail>() {{
+                add(new CrimeDetail("HORRIBLE CRIME", 1, null, null));
+                add(new CrimeDetail("BAD CRIME", 2, null, null));
+            }}));
+            add(new CrimeDetail("regular", 1, "OKAY CRIME", new ArrayList<CrimeDetail>() {{
+                add(new CrimeDetail("OKAY CRIME", 1, null, null));
+            }}));
+            add(new CrimeDetail("mild", 4, "MEH CRIME", new ArrayList<CrimeDetail>() {{
+                add(new CrimeDetail("MEH CRIME", 4, null, null));
+            }}));
+        }});
+        when(service.getCrimeDetail(10, 15)).thenReturn(response);
+        mockMvc.perform(get("/api/detail?lat=10&lng=15")).andExpect(json().isEqualTo(TestUtilities.jsonFileToString("src/test/resources/output/CrimeDetail.json")));
     }
 }

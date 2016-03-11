@@ -1,6 +1,7 @@
 package io.pivotal.service;
 
 import io.pivotal.response.input.CrimeResponse;
+import io.pivotal.response.output.CrimeDetail;
 import io.pivotal.response.output.CrimeInfo;
 import io.pivotal.utilities.QueryFormatUtilities;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,15 @@ import java.util.*;
 public class CrimeService {
     @Autowired
     IDataSeattleService service;
+    private List<String> mildCrimes = new ArrayList<>(
+            Arrays.asList("200", "300", "1700", "2500", "2600", "2700"));
+
+    private List<String> regularCrimes = new ArrayList<>(
+            Arrays.asList("100", "2200", "2200", "2299", "2300", "2400", "2800"));
+
+    private List<String> violentCrimes = new ArrayList<>(
+            Arrays.asList("900","1000", "1100", "1200", "1300", "1400", "1600",
+                    "2000", "2100", "2900"));
 
     private final List<String> violentCrimeNames = new ArrayList<>(
             Arrays.asList("ASSAULT", "BURGLARY", "HOMICIDE", "INJURY",
@@ -50,5 +60,10 @@ public class CrimeService {
 
         crimeNamesToFrequency.forEach((name,frequency) -> offenses.add(new CrimeInfo.Offense(name, frequency)));
         return new CrimeInfo(responses.size(), mostFrequentCrimeName, violentCrimeCount, offenses);
+    }
+
+    public CrimeDetail getCrimeDetail(double latitude, double longitude) {
+        List<CrimeResponse> responses = service.getCrimeResponses(QueryFormatUtilities.formatWhere(latitude, longitude));
+        return null;
     }
 }

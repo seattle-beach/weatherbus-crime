@@ -1,0 +1,46 @@
+{
+  "data" : {
+    "type" : "all",
+    "total" : 8,
+    "popular" : "MEH CRIME",
+    "offenses" : [
+      {
+        "type" : "violent",
+        "total" : 3,
+        "popular" : "BAD CRIME",
+        "offenses" : [
+          {
+            "type": "HORRIBLE CRIME",
+            "total": 1
+          },
+          {
+            "type" : "BAD CRIME",
+            "total" : 2
+          }
+        ]
+      },
+      {
+        "type" : "regular",
+        "total" : 1,
+        "popular": "OKAY CRIME",
+        "offenses" : [
+          {
+            "type" : "OKAY CRIME",
+            "total" : 1
+          }
+        ]
+      },
+      {
+        "type" : "mild",
+        "total" : 4,
+        "popular": "MEH CRIME",
+        "offenses" : [
+          {
+            "type" : "MEH CRIME",
+            "total" : 4
+          }
+        ]
+      }
+    ]
+  }
+}
