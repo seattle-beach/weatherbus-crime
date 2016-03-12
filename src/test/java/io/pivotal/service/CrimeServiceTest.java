@@ -34,11 +34,6 @@ public class CrimeServiceTest {
     double latitude = 10;
     double longitude = 15;
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
     @Test
     public void getCrimeInfo_shouldReturnAccurateCrimeInfoForInput() throws Exception {
         List<CrimeInfo.Offense> offenses = new ArrayList<>();

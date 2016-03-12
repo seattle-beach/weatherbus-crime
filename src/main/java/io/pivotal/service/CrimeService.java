@@ -15,6 +15,15 @@ import java.util.*;
 public class CrimeService {
     @Autowired
     IDataSeattleService service;
+    private List<String> mildCrimes = new ArrayList<>(
+            Arrays.asList("200", "300", "1700", "2500", "2600", "2700"));
+
+    private List<String> regularCrimes = new ArrayList<>(
+            Arrays.asList("100", "2200", "2200", "2299", "2300", "2400", "2800"));
+
+    private List<String> violentCrimes = new ArrayList<>(
+            Arrays.asList("900","1000", "1100", "1200", "1300", "1400", "1600",
+                    "2000", "2100", "2900"));
 
     private final List<String> violentCrimeNames = new ArrayList<>(Arrays.asList(
             "ASSAULT", "BURGLARY", "HOMICIDE", "INJURY",
